@@ -1,0 +1,130 @@
+[
+    {
+        "id": "3c4b8a6fe7c9b5cd",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "a9e3edaad1c3b12c",
+        "type": "inject",
+        "z": "3c4b8a6fe7c9b5cd",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "Hola",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 140,
+        "wires": [
+            [
+                "019c462b1cdc050e",
+                "29294b5d1aa6a806"
+            ]
+        ]
+    },
+    {
+        "id": "019c462b1cdc050e",
+        "type": "function",
+        "z": "3c4b8a6fe7c9b5cd",
+        "name": "",
+        "func": "// Lo que está después de “//” son comentarios\n// Crea un objeto Date a partir del payload enviado por timestamp\nvar date = new Date(msg.payload);\n// Cambia el payload para que sea una fecha con formato\nmsg.payload = date.toString();\n// Regresa el mensaje para que se envíe al sigueinte nodo\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 140,
+        "wires": [
+            [
+                "acfa9533b016645e",
+                "18800da2a7df3f39"
+            ]
+        ]
+    },
+    {
+        "id": "acfa9533b016645e",
+        "type": "ui_text",
+        "z": "3c4b8a6fe7c9b5cd",
+        "group": "5d80d38c32209f67",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "text",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "x": 590,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "29294b5d1aa6a806",
+        "type": "debug",
+        "z": "3c4b8a6fe7c9b5cd",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 390,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "18800da2a7df3f39",
+        "type": "debug",
+        "z": "3c4b8a6fe7c9b5cd",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 590,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "5d80d38c32209f67",
+        "type": "ui_group",
+        "name": "FECHA G8",
+        "tab": "474195ca7e08f3b1",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "474195ca7e08f3b1",
+        "type": "ui_tab",
+        "name": "FLOW 2 FECHA",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
